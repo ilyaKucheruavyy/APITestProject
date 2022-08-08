@@ -1,5 +1,4 @@
-﻿using APITestProject.API;
-using APITestProject.Providers;
+﻿using APITestProject.Providers;
 using RestSharp;
 
 namespace APITestProject.Helpers

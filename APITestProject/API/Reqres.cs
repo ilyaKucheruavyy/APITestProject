@@ -4,7 +4,6 @@ using Newtonsoft.Json;
 using RestSharp;
 using RestSharp.Serializers;
 
-
 namespace APITestProject.API
 {
     public class Reqres: BaseApiMethods
