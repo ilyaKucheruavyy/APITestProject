@@ -100,12 +100,12 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("Create new user with following data", ((string)(null)), table1, "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                            "",
-                            ""});
+                            "name",
+                            "job"});
                 table2.AddRow(new string[] {
-                            "",
-                            ""});
-#line 9
+                            "morpheus",
+                            "leader"});
+#line 8
  testRunner.Then("User get response after successful created", ((string)(null)), table2, "Then ");
 #line hidden
             }

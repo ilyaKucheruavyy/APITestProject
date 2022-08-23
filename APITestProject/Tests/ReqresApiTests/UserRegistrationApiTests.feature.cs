@@ -90,23 +90,23 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                             "email",
                             "password"});
-                table5.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "eve.holt@reqres.in",
                             "pistol"});
 #line 4
- testRunner.When("Registration user with following data", ((string)(null)), table5, "When ");
+ testRunner.When("Registration user with following data", ((string)(null)), table7, "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                             "id",
                             "token"});
-                table6.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "4",
                             "QpwL5tke4Pnpja7X4"});
 #line 7
- testRunner.Then("User get response after successful registration", ((string)(null)), table6, "Then ");
+ testRunner.Then("User get response after successful registration", ((string)(null)), table8, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -129,21 +129,21 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                             "email",
                             "password"});
-                table7.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "eve.holt@reqres.in",
                             "cityslicka"});
 #line 12
- testRunner.When("Login user with following data", ((string)(null)), table7, "When ");
+ testRunner.When("Login user with following data", ((string)(null)), table9, "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                             "token"});
-                table8.AddRow(new string[] {
+                table10.AddRow(new string[] {
                             "QpwL5tke4Pnpja7X4"});
 #line 15
- testRunner.Then("User get response after successful login", ((string)(null)), table8, "Then ");
+ testRunner.Then("User get response after successful login", ((string)(null)), table10, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

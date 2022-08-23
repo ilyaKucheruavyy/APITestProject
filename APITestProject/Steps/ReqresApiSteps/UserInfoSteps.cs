@@ -1,10 +1,10 @@
-﻿using System.Diagnostics;
-using System.Net;
+﻿using System.Net;
 using APITestProject.API.Reqres;
 using APITestProject.DTO;
 using APITestProject.Extensions;
 using APITestProject.Helpers;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using RestSharp;
 using TechTalk.SpecFlow;
@@ -17,11 +17,17 @@ namespace APITestProject.Steps.ReqresApiSteps
     {
         private readonly RestWebClient _client;
         private RestResponse _response;
+        private readonly UsersInfoDTO _usersInfoDto;
+        private readonly DataForListOfTheUserDto _dataList;
+        private readonly SupportInfoDto _supportInfo;
 
-        public UserInfoSteps(RestWebClient client, RestResponse response)
+        public UserInfoSteps(RestWebClient client, RestResponse response, UsersInfoDTO usersInfoDTO, DataForListOfTheUserDto dataList, SupportInfoDto supportInfo)
         {
             _client = client;
             _response = response;
+            _usersInfoDto = usersInfoDTO;
+            _dataList= dataList;
+            _supportInfo = supportInfo;
         }
 
         [When(@"Get info about '(.*)' user")]
@@ -30,27 +36,45 @@ namespace APITestProject.Steps.ReqresApiSteps
             _response = _client.Reqres.InitApiMethods<InfoMethods>().GetInfoAboutSingleUser(userId);
         }
 
-        [When(@"Get list of the user from '(.*)' page")]
-        public void WhenGetListOfTheUserFromPage(int pageNumber)
+        [When(@"Get list of the users from '(.*)' page")]
+        public void WhenGetListOfTheUsersFromPage(int pageNumber)
         {
             _response = _client.Reqres.InitApiMethods<InfoMethods>().GetListOfTheUsers(pageNumber);
         }
 
-        [Then(@"User get response after successful got list of the user")]
-        public void ThenUserGetResponseAfterSuccessfulGotListOfTheUser(Table table)
+        [Then(@"User checks page info from response body for list of the users")]
+        public void ThenUserChecksPageInfoFromResponseBodyForListOfTheUsers(Table table)
         {
             Assert.AreEqual(HttpStatusCode.OK, _response.StatusCode);
-            var expectedData = table.CreateInstance<UsersInfoDTO>();
+            var expectedData = table.CreateInstance<ListOfTheUserDTO>();
+            var actualData = JsonConvert.DeserializeObject<ListOfTheUserDTO>(_response.Content);
+            Assert.AreEqual(expectedData, actualData, "Incorrect data");
+        }
+
+        [Then(@"User checks 'data' class from response body for single user")]
+        public void ThenUserChecksDataClassFromResponseBodyForSingleUser(Table table)
+        {
+            Assert.AreEqual(HttpStatusCode.OK, _response.StatusCode);
+            var expectedData = _usersInfoDto.DataAboutSingleUser(table);
             var actualData = JsonConvert.DeserializeObject<UsersInfoDTO>(_response.Content);
             Assert.AreEqual(expectedData, actualData, "Incorrect data");
         }
 
-        [Then(@"User get response after successful got info about single user")]
-        public void ThenUserGetResponseAfterSuccessfulGotInfo(Table table)
+        [Then(@"User checks 'support' class from response body")]
+        public void ThenUserChecksSupportClassFromResponseBody(Table table)
+        {
+            Assert.AreEqual(HttpStatusCode.OK, _response.StatusCode, "Incorrect status code");
+            var expectedData = _supportInfo.GetSupportData(table);
+            var actualData = JsonConvert.DeserializeObject<SupportInfoDto>(_response.Content);
+            Assert.AreEqual(expectedData, actualData, "Incorrect data");
+        }
+
+        [Then(@"User checks 'data' class from response body for list of the users")]
+        public void ThenUserChecksDataClassFromResponseBodyForListOfTheUsers(Table table)
         {
             Assert.AreEqual(HttpStatusCode.OK, _response.StatusCode);
-            var expectedData = table.CreateInstance<UsersInfoDTO>();
-            var actualData = JsonConvert.DeserializeObject<UsersInfoDTO>(_response.Content);
+            var expectedData = _dataList.ListOfData(table);
+            var actualData = JsonConvert.DeserializeObject<DataForListOfTheUserDto>(_response.Content);
             Assert.AreEqual(expectedData, actualData, "Incorrect data");
         }
     }

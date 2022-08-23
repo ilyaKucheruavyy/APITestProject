@@ -15,7 +15,8 @@ namespace APITestProject.API.Reqres
 
         public RestResponse GetListOfTheUsers(int pageNumber)
         {
-            var request = new RestRequest($"/api/users?page={pageNumber}", Method.Get);
+            var request = new RestRequest($"/api/users", Method.Get);
+            request.AddQueryParameter("page", pageNumber);
             var response = Client.ExecuteAsync(request).Result;
 
             return response;

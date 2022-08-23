@@ -90,23 +90,23 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
                             "name",
                             "job"});
-                table9.AddRow(new string[] {
+                table11.AddRow(new string[] {
                             "morpheus",
                             "zion resident"});
 #line 4
- testRunner.When("Update info about \'2\' user", ((string)(null)), table9, "When ");
+ testRunner.When("Update info about \'2\' user", ((string)(null)), table11, "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
                             "name",
                             "job"});
-                table10.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "morpheus",
                             "zion resident"});
 #line 7
- testRunner.Then("User get response after successful updated", ((string)(null)), table10, "Then ");
+ testRunner.Then("User get response after successful updated", ((string)(null)), table12, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

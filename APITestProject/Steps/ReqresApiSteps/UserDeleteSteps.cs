@@ -26,7 +26,7 @@ namespace APITestProject.Steps.ReqresApiSteps
             _response = _client.Reqres.InitApiMethods<DeleteMethods>().DeleteUser(userId);
         }
 
-        [Then(@"User get response after successful deleted")]
+        [Then(@"User get response after successful deleting")]
         public void ThenUserGetResponseAfterSuccessfulDeleted()
         {
             Assert.AreEqual(HttpStatusCode.NoContent, _response.StatusCode);

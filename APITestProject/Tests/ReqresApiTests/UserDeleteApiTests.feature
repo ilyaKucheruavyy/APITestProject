@@ -2,5 +2,5 @@
 
 Scenario: CheckThatDeleteUserWorksCorrect
 	When Delete '2' user
-	Then User get response after successful deleted
+	Then User get response after successful deleting
 

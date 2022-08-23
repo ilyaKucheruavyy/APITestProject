@@ -94,15 +94,26 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("Get info about \'2\' user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                            "",
-                            "",
-                            ""});
+                            "id",
+                            "email",
+                            "first_name",
+                            "last_name"});
                 table3.AddRow(new string[] {
-                            "",
-                            "",
-                            ""});
+                            "2",
+                            "janet.weaver@reqres.in",
+                            "Janet",
+                            "Weaver"});
 #line 5
- testRunner.Then("User get response after successful got info about single user", ((string)(null)), table3, "Then ");
+ testRunner.Then("User checks \'data\' class from response body for single user", ((string)(null)), table3, "Then ");
+#line hidden
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                            "text",
+                            "url"});
+                table4.AddRow(new string[] {
+                            "To keep ReqRes free, contributions towards server costs are appreciated!",
+                            "https://reqres.in/#support-heading"});
+#line 8
+ testRunner.Then("User checks \'support\' class from response body", ((string)(null)), table4, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -115,7 +126,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("CheckThatGetListOfTheUsersWorksCorrect", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 9
+#line 12
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -125,19 +136,59 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 10
- testRunner.When("Get list of the user from \'2\' page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 13
+ testRunner.When("Get list of the users from \'2\' page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                            "",
-                            "",
-                            ""});
-                table4.AddRow(new string[] {
-                            "",
-                            "",
-                            ""});
-#line 11
- testRunner.Then("User get response after successful got list of the user", ((string)(null)), table4, "Then ");
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                            "page",
+                            "pre_page",
+                            "total",
+                            "total_pages"});
+                table5.AddRow(new string[] {
+                            "2",
+                            "6",
+                            "12",
+                            "2"});
+#line 14
+ testRunner.Then("User checks page info from response body for list of the users", ((string)(null)), table5, "Then ");
+#line hidden
+                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                            "id",
+                            "email",
+                            "first_name",
+                            "last_name"});
+                table6.AddRow(new string[] {
+                            "7",
+                            "michael.lawson@reqres.in",
+                            "Michael",
+                            "Lawson"});
+                table6.AddRow(new string[] {
+                            "8",
+                            "lindsay.ferguson@reqres.in",
+                            "Lindsay",
+                            "Ferguson"});
+                table6.AddRow(new string[] {
+                            "9",
+                            "tobias.funke@reqres.in",
+                            "Tobias",
+                            "Funke"});
+                table6.AddRow(new string[] {
+                            "10",
+                            "byron.fields@reqres.in",
+                            "Byron",
+                            "Fields"});
+                table6.AddRow(new string[] {
+                            "11",
+                            "george.edwards@reqres.in",
+                            "George",
+                            "Edwards"});
+                table6.AddRow(new string[] {
+                            "12",
+                            "rachel.howell@reqres.in",
+                            "Rachel",
+                            "Howell"});
+#line 17
+ testRunner.Then("User checks \'data\' class from response body for list of the users", ((string)(null)), table6, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

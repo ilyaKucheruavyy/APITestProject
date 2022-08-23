@@ -94,7 +94,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("Delete \'2\' user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 5
- testRunner.Then("User get response after successful deleted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User get response after successful deleting", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
