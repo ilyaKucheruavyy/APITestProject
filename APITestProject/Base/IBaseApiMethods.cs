@@ -6,5 +6,4 @@ namespace APITestProject.Base
     {
         RestClient Client { set; }
     }
-
 }
